@@ -1,0 +1,19 @@
+{
+  "name": "Itsgenygarts",
+  "short_name": "Itsgenygarts",
+  "icons": [
+    {
+      "src": "/favicon.png?v=2",
+      "sizes": "48x48",
+      "type": "image/png"
+    },
+    {
+      "src": "/site-icon.png?v=2",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "theme_color": "#DD7A8F",
+  "background_color": "#DD7A8F",
+  "display": "standalone"
+}

@@ -1,0 +1,56 @@
+{
+  "expo": {
+    "name": "Itsgenygarts Portfolio Admin",
+    "slug": "itsgenygarts-portfolio-admin",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F2EF"
+    },
+    "ios": {
+      "icon": "./assets/icon.png",
+      "bundleIdentifier": "com.example.itsgenygartsportfolio",
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.example.itsgenygartsportfolio",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#DD7A8F"
+      },
+      "edgeToEdgeEnabled": true
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-notifications",
+      "expo-secure-store",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 26
+          }
+        }
+      ],
+      [
+        "@stripe/stripe-terminal-react-native",
+        {
+          "bluetoothBackgroundMode": true,
+          "locationWhenInUsePermission": "La localisation est requise pour accepter des paiements en personne.",
+          "bluetoothPeripheralPermission": "Bluetooth est requis pour connecter des lecteurs de paiement.",
+          "bluetoothAlwaysUsagePermission": "Cette app utilise Bluetooth pour connecter des lecteurs de paiement.",
+          "localNetworkUsagePermission": "Cette app utilise le réseau local pour ouvrir l'admin et connecter des lecteurs.",
+          "appDelegate": true,
+          "tapToPayCheck": true
+        }
+      ]
+    ]
+  }
+}

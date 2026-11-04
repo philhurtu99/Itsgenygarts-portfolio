@@ -1,0 +1,47 @@
+name: Portfolio checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      DATABASE_URL: postgresql://portfolio:portfolio_demo@127.0.0.1:55432/itsgenygarts_portfolio?schema=public
+      BACKGROUND_JOBS_ENABLED: "false"
+      CURRENCY_RATE_AUTO_UPDATE: "false"
+      VITE_API_URL: http://localhost:3001/api
+      VITE_FRONTEND_URL: http://localhost:3000
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: |
+            backend/package-lock.json
+            frontend/package-lock.json
+            admin/package-lock.json
+      - name: Install locked dependencies
+        run: |
+          npm --prefix backend ci --ignore-scripts --no-audit --no-fund
+          npm --prefix frontend ci --ignore-scripts --no-audit --no-fund
+          npm --prefix admin ci --ignore-scripts --no-audit --no-fund
+      - name: Generate Prisma client
+        run: npm --prefix backend run db:generate
+      - name: Run tests
+        run: |
+          npm --prefix backend test -- --runInBand
+          npm --prefix frontend test -- --runInBand
+          npm --prefix admin test -- --runInBand
+      - name: Build storefront and administration
+        run: |
+          npm --prefix frontend run build
+          npm --prefix admin run build

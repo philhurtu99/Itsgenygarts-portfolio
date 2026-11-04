@@ -1,0 +1,17 @@
+.git
+.github
+node_modules
+*/node_modules
+coverage
+*/coverage
+dist
+*/dist
+build
+*/build
+.env
+.env.*
+*/.env
+*/.env.*
+*.log
+npm-debug.log*
+mobile-admin/node_modules

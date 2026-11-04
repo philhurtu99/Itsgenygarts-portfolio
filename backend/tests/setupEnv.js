@@ -1,0 +1,11 @@
+process.env.JWT_SECRET = process.env.JWT_SECRET || 'test-secret-key-for-jest';
+process.env.JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN || '1h';
+process.env.BUSINESS_NAME = process.env.BUSINESS_NAME || 'TestShop';
+process.env.BUSINESS_EMAIL = process.env.BUSINESS_EMAIL || 'test@shop.com';
+process.env.BUSINESS_ADDRESS = process.env.BUSINESS_ADDRESS || '1 rue du test';
+process.env.BUSINESS_PHONE = process.env.BUSINESS_PHONE || '+1-000-000-0000';
+process.env.BUSINESS_TAX_ID = process.env.BUSINESS_TAX_ID || 'TAX-0000';
+process.env.SMTP_HOST = process.env.SMTP_HOST || 'smtp.test.local';
+process.env.SMTP_USER = process.env.SMTP_USER || 'test@test.local';
+process.env.SMTP_PASS = process.env.SMTP_PASS || 'password';
+process.env.SMTP_FROM = process.env.SMTP_FROM || 'noreply@test.local';

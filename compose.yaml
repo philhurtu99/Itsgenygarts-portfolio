@@ -1,0 +1,19 @@
+# Disposable local database only; no web deployment, tunnel, or production runner.
+services:
+  db:
+    image: postgres:16-alpine@sha256:57c72fd2a128e416c7fcc499958864df5301e940bca0a56f58fddf30ffc07777
+    environment:
+      POSTGRES_DB: itsgenygarts_portfolio
+      POSTGRES_USER: portfolio
+      POSTGRES_PASSWORD: portfolio_demo
+    ports:
+      - "127.0.0.1:55432:5432"
+    volumes:
+      - portfolio_postgres:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U portfolio -d itsgenygarts_portfolio"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  portfolio_postgres:
