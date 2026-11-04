@@ -90,9 +90,19 @@ describe('currency rate updater', () => {
   });
 
   it('exposes env helpers for scheduling', () => {
-    expect(currencyRateAutoUpdateEnabled()).toBe(true);
-    expect(currencyRateAutoUpdateEnabled('false')).toBe(false);
-    expect(currencyRateUpdateIntervalMs('2')).toBe(2 * 60 * 60 * 1000);
-    expect(currencyRateUpdateIntervalMs('-1')).toBe(24 * 60 * 60 * 1000);
+    const original = process.env.CURRENCY_RATE_AUTO_UPDATE;
+    try {
+      delete process.env.CURRENCY_RATE_AUTO_UPDATE;
+      expect(currencyRateAutoUpdateEnabled()).toBe(true);
+      process.env.CURRENCY_RATE_AUTO_UPDATE = 'false';
+      expect(currencyRateAutoUpdateEnabled()).toBe(false);
+      expect(currencyRateAutoUpdateEnabled('true')).toBe(true);
+      expect(currencyRateAutoUpdateEnabled('false')).toBe(false);
+      expect(currencyRateUpdateIntervalMs('2')).toBe(2 * 60 * 60 * 1000);
+      expect(currencyRateUpdateIntervalMs('-1')).toBe(24 * 60 * 60 * 1000);
+    } finally {
+      if (original === undefined) delete process.env.CURRENCY_RATE_AUTO_UPDATE;
+      else process.env.CURRENCY_RATE_AUTO_UPDATE = original;
+    }
   });
 });
