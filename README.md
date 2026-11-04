@@ -12,6 +12,7 @@ La copie portfolio se lance avec une base PostgreSQL locale et des données fict
 
 ## Sommaire
 
+- [Aperçu en images](#aperçu-en-images)
 - [Boutique et espace client](#boutique-et-espace-client)
 - [Administration web](#administration-web)
 - [Administration mobile et vente en personne](#administration-mobile-et-vente-en-personne)
@@ -21,6 +22,24 @@ La copie portfolio se lance avec une base PostgreSQL locale et des données fict
 - [Intégrations et configuration](#intégrations-et-configuration)
 - [Tests et vérifications](#tests-et-vérifications)
 - [Organisation du dépôt](#organisation-du-dépôt)
+
+## Aperçu en images
+
+Les captures de la boutique proviennent du [site public Itsgenygarts](https://itsgenygarts.com/). Le catalogue réel et ses photographies illustrent le site en activité; la démonstration locale de ce dépôt utilise plutôt les produits fictifs fournis par le script de données de démonstration.
+
+### Accueil de la boutique
+
+![Accueil du site public Itsgenygarts, avec la présentation des créations au crochet](docs/screenshots/boutique-accueil.jpg)
+
+### Catalogue et filtres
+
+![Catalogue du site public, avec recherche, catégories, tri et variantes de couleur](docs/screenshots/boutique-catalogue.jpg)
+
+### Tableau de bord administrateur
+
+Cette capture provient de l'instance locale avec des données entièrement fictives. Elle montre les indicateurs, l'historique d'activité et le suivi des commandes, sans renseignements de clients réels.
+
+![Tableau de bord administrateur local avec statistiques et commande de démonstration](docs/screenshots/admin-tableau-de-bord.jpg)
 
 ## Boutique et espace client
 
